@@ -25,9 +25,14 @@ const deleteById = async id => {
   return toBeDeleted
 }
 
+const getByName =  name => {
+  return db('accounts').where('name','like', name)
+  // specified 'LIKE' so that different cases of the name would be caught
+}
 module.exports = {
   getAll,
   getById,
+  getByName,
   create,
   updateById,
   deleteById,
